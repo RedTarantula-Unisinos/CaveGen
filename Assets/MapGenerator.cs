@@ -37,6 +37,18 @@ public class MapGenerator : MonoBehaviour
         for (int i = 0 ; i < its ; i++)
         {
             SmoothMap();
+            string mapString = "Iteration: " + i.ToString() + "\n";
+            for (int x = 0 ; x < width ; x++)
+            {
+                for (int y = 0 ; y < height ; y++)
+                {
+                    mapString += map[x,y].ToString() + ", ";
+                }
+                mapString += "\n";
+            }
+
+
+            Debug.Log(mapString);
         }
     }
 
