@@ -55,6 +55,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\PlayerEditor.cs" />
+     <Compile Include="Assets\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\MapGenEditor.cs" />
      <Compile Include="Assets\Scripts\MapGenerator.cs" />
      <Compile Include="Assets\Scripts\PetriNet.cs" />
