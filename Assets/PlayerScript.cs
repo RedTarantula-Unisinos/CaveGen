@@ -67,6 +67,8 @@ public class PlayerScript : MonoBehaviour
         pn.CreateConnectionST(12,5);
         pn.CreateConnectionTS(10,5,20);
 
+        pn.ListsToArrays();
+
         pn.AddTokensToSlot(1,100);
         pn.AddTokensToSlot(6,20);
         pn.AddTokensToSlot(10,50);
