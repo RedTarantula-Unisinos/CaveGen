@@ -90,18 +90,18 @@ public class PetriNet : MonoBehaviour
 
         public void ActivateCallBack()
         {
-            Debug.Log("Callback for " + name + ": " + cb);
+            //Debug.Log("Callback for " + name + ": " + cb);
             if(cb != null)
             cb();
             else
             {
-                Debug.Log("No callback");
+                //Debug.Log("No set callback");
             }
         }
 
         public void SetCallback(CallBack callback)
         {
-            Debug.Log("Setting callback for " + name + ": " + cb);
+            //Debug.Log("Setting callback for " + name + ": " + cb);
             cb = callback;
         }
 

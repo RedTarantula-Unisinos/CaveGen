@@ -68,6 +68,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField]
     public DungeonCell[,] cells;
     List<string> debugAgents;
+    public bool debugging  = false;
 
     void Start()
     {
@@ -137,6 +138,7 @@ public class MapGenerator : MonoBehaviour
                 
             }
         }
+        playerAgent.obj.GetComponent<PlayerScript>().CreatePetriNet();
         built = true;
     }
     
@@ -147,7 +149,9 @@ public class MapGenerator : MonoBehaviour
          mainAreaCoord = new Vector2(-1,-1);
         if (physicalMap == null)
             physicalMap = new GameObject();
-        
+
+        physicalMap.name = "Physical Map";
+
         cells = new DungeonCell[width,height];
 
         map = new int[width,height];
@@ -169,6 +173,8 @@ public class MapGenerator : MonoBehaviour
             GetMainArea();
             Debug.LogWarning("FINISHED GENERATING");
             //Debug.Log(mapString);
+            playerAgent.obj.GetComponent<PlayerScript>().mg = gameObject.GetComponent<MapGenerator>();
+            //Debug.Log(cells);
         }
     }
 
@@ -292,6 +298,7 @@ public class MapGenerator : MonoBehaviour
             Vector2 randomPos = mainAreaPositions[rpos];
             mainAreaPositions.Remove(randomPos);
             GameObject playerGO = cells[(int)randomPos.x,(int)randomPos.y].agent = playerAgent.obj;
+            playerAgent.obj.transform.name = "PLAYER";
             playerGO.GetComponent<PlayerScript>().cellPosition = new Vector2((int)randomPos.x,(int)randomPos.y);
 
             spawnedPlayer = true;
@@ -336,17 +343,26 @@ public class MapGenerator : MonoBehaviour
     }
     GameObject SpawnWallFloor(Vector2 pos, bool wallBool = false)
     {
-        Debug.Log(wallBool);
+        if(debugging)Debug.Log(wallBool);
         GameObject go;
+        string namePref = "";
         if (wallBool)
+        {
             go = wall;
+            namePref = "(WALL)";
+        }
         else
+        {
             go = floor;
+            namePref = "(FLOOR)";
+        }
         GameObject mapElement = Instantiate(go,physicalMap.transform);
         Vector3 objPos = mapElement.transform.position;
         objPos = new Vector3(pos.x,0,pos.y);
         mapElement.transform.position = objPos;
+        mapElement.transform.name = namePref + " Cell " + pos.x + " x " + pos.y;
         cells[(int)pos.x,(int)pos.y].go = mapElement;
+        if(debugging)Debug.Log(cells[(int)pos.x,(int)pos.y].go);
 
         return mapElement;
     }

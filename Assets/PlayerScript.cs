@@ -18,19 +18,14 @@ public class PlayerScript : MonoBehaviour
             pn = gameObject.AddComponent<PetriNet>();
         if (mg == null)
             mg = GameObject.Find("Map").GetComponent<MapGenerator>();
-        if(!createdNet)
+
         CreatePetriNet();
     }
 
     public void CreatePetriNet()
     {
-        if (createdNet)
-        {
-            DestroyImmediate(pn);
-        }
-
-        if (pn == null)
-            pn = gameObject.AddComponent<PetriNet>();
+        DestroyImmediate(pn);
+        pn = gameObject.AddComponent<PetriNet>();
 
 
         createdNet = true;
@@ -100,11 +95,11 @@ public class PlayerScript : MonoBehaviour
         pn.AddTokensToSlot(6,20);
         pn.AddTokensToSlot(13,50);
 
-        pn.transitionsArray[4].SetCallback((PetriNet.PetriTransition.CallBack)MoveN);
-        pn.transitionsArray[5].SetCallback((PetriNet.PetriTransition.CallBack)MoveL);
-        pn.transitionsArray[6].SetCallback((PetriNet.PetriTransition.CallBack)MoveS);
-        pn.transitionsArray[7].SetCallback((PetriNet.PetriTransition.CallBack)MoveO);
-        pn.transitionsArray[1].SetCallback((PetriNet.PetriTransition.CallBack)Die);
+        pn.transitionsArray[4].SetCallback(MoveN);
+        pn.transitionsArray[5].SetCallback(MoveL);
+        pn.transitionsArray[6].SetCallback(MoveS);
+        pn.transitionsArray[7].SetCallback(MoveO);
+        pn.transitionsArray[1].SetCallback(Die);
 
         Debug.Log("Created Net");
     }
@@ -126,7 +121,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             pn.SetTokensOnSlot(9,1);
-            if (mg.cells[(int)cellPosition.x,(int)cellPosition.y-1].wall)
+            if (mg.cells[(int)cellPosition.x,(int)cellPosition.y+1].wall)
             {
                 pn.SetTokensOnSlot(8,1);
             }
@@ -156,7 +151,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             pn.SetTokensOnSlot(11,1);
-            if (mg.cells[(int)cellPosition.x,(int)cellPosition.y+1].wall)
+            if (mg.cells[(int)cellPosition.x,(int)cellPosition.y-1].wall)
             {
                 pn.SetTokensOnSlot(8,1);
             }
@@ -192,12 +187,22 @@ public class PlayerScript : MonoBehaviour
     public void MoveN()
     {
         Debug.Log("Moved Rover N");
+
+        //Debug.Log("Agent before: " + mg.cells[(int)cellPosition.x,(int)cellPosition.y].go.transform.name);
+        //Debug.Log("Cells: " + mg.cells);
+        //Debug.Log("New Cell: " + mg.cells[(int)cellPosition.x,(int)cellPosition.y - 1]);
+        //Debug.Log("Agent: " + mg.cells[(int)cellPosition.x,(int)cellPosition.y - 1].agent);
+        //Debug.Log("gameObject: " + gameObject);
+
+        
         mg.cells[(int)cellPosition.x,(int)cellPosition.y].agent = null;
+        cellPosition = new Vector2(cellPosition.x,cellPosition.y+1);
 
-        mg.cells[(int)cellPosition.x,(int)cellPosition.y - 1].agent = gameObject;
-        transform.parent = mg.cells[(int)cellPosition.x,(int)cellPosition.y - 1].go.transform;
+        mg.cells[(int)cellPosition.x,(int)cellPosition.y].agent = gameObject;
+        Debug.Log("Agent after: " + mg.cells[(int)cellPosition.x,(int)cellPosition.y-1].go.transform.name);
+        transform.SetParent(mg.cells[(int)cellPosition.x,(int)cellPosition.y].go.transform,false);
 
-        transform.position = new Vector3(0,0);
+        //transform.localPosition = new Vector3(0,0,-.5f);
     }
     public void MoveL()
     {

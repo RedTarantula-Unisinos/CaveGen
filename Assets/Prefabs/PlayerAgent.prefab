@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4840990215740268941}
   - component: {fileID: 7869731489565681073}
   - component: {fileID: 4524584511789407102}
-  - component: {fileID: 3473640651845521092}
+  - component: {fileID: 42514103727003026}
+  - component: {fileID: 6527832889163251603}
   m_Layer: 0
   m_Name: PlayerAgent
   m_TagString: Untagged
@@ -93,12 +94,1055 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d043f4ad1d73154c8c4d88162059cbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pn: {fileID: 3473640651845521092}
+  pn: {fileID: 6527832889163251603}
   mg: {fileID: 0}
-  cellPosition: {x: 0, y: 0}
+  cellPosition: {x: 15, y: 15}
   createdNet: 1
   run: 0
---- !u!114 &3473640651845521092
+--- !u!114 &42514103727003026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8253035244577126726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18aa0a8e934accf4eaad081bfd4ce38f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotsList:
+  - id: 0
+    name: Tiro Recebido
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 0
+      s: 0
+      t: 0
+      weight: 1
+      type: 0
+      output: 0
+  - id: 1
+    name: "Sa\xFAde"
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 1
+      s: 1
+      t: 0
+      weight: 1
+      type: 0
+      output: 0
+    - id: 2
+      s: 1
+      t: 1
+      weight: 1
+      type: 1
+      output: 0
+  - id: 2
+    name: "Quadrante Muni\xE7\xE3o"
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 3
+      s: 2
+      t: 2
+      weight: 1
+      type: 0
+      output: 0
+  - id: 3
+    name: "Input Carregar Muni\xE7\xE3o"
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 4
+      s: 3
+      t: 2
+      weight: 1
+      type: 0
+      output: 0
+  - id: 4
+    name: "Robo Vizinhan\xE7a"
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 5
+      s: 4
+      t: 3
+      weight: 1
+      type: 0
+      output: 0
+  - id: 5
+    name: Input Atacar
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 6
+      s: 5
+      t: 3
+      weight: 1
+      type: 0
+      output: 0
+  - id: 6
+    name: "Muni\xE7\xE3o"
+    tokens: 0
+    inputs:
+    - id: 8
+      s: 6
+      t: 2
+      weight: 10
+      type: 0
+      output: 1
+    outputs:
+    - id: 7
+      s: 6
+      t: 3
+      weight: 1
+      type: 0
+      output: 0
+  - id: 7
+    name: Tiro Enviado
+    tokens: 0
+    inputs:
+    - id: 9
+      s: 7
+      t: 3
+      weight: 1
+      type: 0
+      output: 1
+    outputs: []
+  - id: 8
+    name: "Quadrante Colis\xE3o"
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 10
+      s: 8
+      t: 4
+      weight: 1
+      type: 1
+      output: 0
+  - id: 9
+    name: Input Deslocar Norte
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 11
+      s: 9
+      t: 4
+      weight: 1
+      type: 0
+      output: 0
+  - id: 10
+    name: Input Deslocar Leste
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 12
+      s: 10
+      t: 5
+      weight: 1
+      type: 0
+      output: 0
+  - id: 11
+    name: Input Deslocar Sul
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 13
+      s: 11
+      t: 6
+      weight: 1
+      type: 0
+      output: 0
+  - id: 12
+    name: Input Deslocar Oeste
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 14
+      s: 12
+      t: 7
+      weight: 1
+      type: 0
+      output: 0
+  - id: 13
+    name: "Combust\xEDvel"
+    tokens: 0
+    inputs:
+    - id: 21
+      s: 13
+      t: 8
+      weight: 20
+      type: 0
+      output: 1
+    outputs:
+    - id: 15
+      s: 13
+      t: 4
+      weight: 1
+      type: 0
+      output: 0
+    - id: 16
+      s: 13
+      t: 5
+      weight: 1
+      type: 0
+      output: 0
+    - id: 17
+      s: 13
+      t: 6
+      weight: 1
+      type: 0
+      output: 0
+    - id: 18
+      s: 13
+      t: 7
+      weight: 1
+      type: 0
+      output: 0
+  - id: 14
+    name: "Input Carregar Combust\xEDvel"
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 19
+      s: 14
+      t: 8
+      weight: 1
+      type: 0
+      output: 0
+  - id: 15
+    name: "Quadrante Combust\xEDvel"
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 20
+      s: 15
+      t: 8
+      weight: 1
+      type: 0
+      output: 0
+  connectionsList:
+  - id: 0
+    s: 0
+    t: 0
+    weight: 1
+    type: 0
+    output: 0
+  - id: 1
+    s: 1
+    t: 0
+    weight: 1
+    type: 0
+    output: 0
+  - id: 2
+    s: 1
+    t: 1
+    weight: 1
+    type: 1
+    output: 0
+  - id: 3
+    s: 2
+    t: 2
+    weight: 1
+    type: 0
+    output: 0
+  - id: 4
+    s: 3
+    t: 2
+    weight: 1
+    type: 0
+    output: 0
+  - id: 5
+    s: 4
+    t: 3
+    weight: 1
+    type: 0
+    output: 0
+  - id: 6
+    s: 5
+    t: 3
+    weight: 1
+    type: 0
+    output: 0
+  - id: 7
+    s: 6
+    t: 3
+    weight: 1
+    type: 0
+    output: 0
+  - id: 8
+    s: 6
+    t: 2
+    weight: 10
+    type: 0
+    output: 1
+  - id: 9
+    s: 7
+    t: 3
+    weight: 1
+    type: 0
+    output: 1
+  - id: 10
+    s: 8
+    t: 4
+    weight: 1
+    type: 1
+    output: 0
+  - id: 11
+    s: 9
+    t: 4
+    weight: 1
+    type: 0
+    output: 0
+  - id: 12
+    s: 10
+    t: 5
+    weight: 1
+    type: 0
+    output: 0
+  - id: 13
+    s: 11
+    t: 6
+    weight: 1
+    type: 0
+    output: 0
+  - id: 14
+    s: 12
+    t: 7
+    weight: 1
+    type: 0
+    output: 0
+  - id: 15
+    s: 13
+    t: 4
+    weight: 1
+    type: 0
+    output: 0
+  - id: 16
+    s: 13
+    t: 5
+    weight: 1
+    type: 0
+    output: 0
+  - id: 17
+    s: 13
+    t: 6
+    weight: 1
+    type: 0
+    output: 0
+  - id: 18
+    s: 13
+    t: 7
+    weight: 1
+    type: 0
+    output: 0
+  - id: 19
+    s: 14
+    t: 8
+    weight: 1
+    type: 0
+    output: 0
+  - id: 20
+    s: 15
+    t: 8
+    weight: 1
+    type: 0
+    output: 0
+  - id: 21
+    s: 13
+    t: 8
+    weight: 20
+    type: 0
+    output: 1
+  transitionsList:
+  - id: 0
+    name: Atingido
+    inputs:
+    - id: 0
+      s: 0
+      t: 0
+      weight: 1
+      type: 0
+      output: 0
+    - id: 1
+      s: 1
+      t: 0
+      weight: 1
+      type: 0
+      output: 0
+    outputs: []
+  - id: 1
+    name: Game Over
+    inputs:
+    - id: 2
+      s: 1
+      t: 1
+      weight: 1
+      type: 1
+      output: 0
+    outputs: []
+  - id: 2
+    name: "Carregar Muni\xE7\xE3o"
+    inputs:
+    - id: 3
+      s: 2
+      t: 2
+      weight: 1
+      type: 0
+      output: 0
+    - id: 4
+      s: 3
+      t: 2
+      weight: 1
+      type: 0
+      output: 0
+    outputs:
+    - id: 8
+      s: 6
+      t: 2
+      weight: 10
+      type: 0
+      output: 1
+  - id: 3
+    name: Atacar Robo
+    inputs:
+    - id: 5
+      s: 4
+      t: 3
+      weight: 1
+      type: 0
+      output: 0
+    - id: 6
+      s: 5
+      t: 3
+      weight: 1
+      type: 0
+      output: 0
+    - id: 7
+      s: 6
+      t: 3
+      weight: 1
+      type: 0
+      output: 0
+    outputs:
+    - id: 9
+      s: 7
+      t: 3
+      weight: 1
+      type: 0
+      output: 1
+  - id: 4
+    name: Deslocar Norte
+    inputs:
+    - id: 10
+      s: 8
+      t: 4
+      weight: 1
+      type: 1
+      output: 0
+    - id: 11
+      s: 9
+      t: 4
+      weight: 1
+      type: 0
+      output: 0
+    - id: 15
+      s: 13
+      t: 4
+      weight: 1
+      type: 0
+      output: 0
+    outputs: []
+  - id: 5
+    name: Deslocar Leste
+    inputs:
+    - id: 12
+      s: 10
+      t: 5
+      weight: 1
+      type: 0
+      output: 0
+    - id: 16
+      s: 13
+      t: 5
+      weight: 1
+      type: 0
+      output: 0
+    outputs: []
+  - id: 6
+    name: Deslocar Sul
+    inputs:
+    - id: 13
+      s: 11
+      t: 6
+      weight: 1
+      type: 0
+      output: 0
+    - id: 17
+      s: 13
+      t: 6
+      weight: 1
+      type: 0
+      output: 0
+    outputs: []
+  - id: 7
+    name: Deslocar Oeste
+    inputs:
+    - id: 14
+      s: 12
+      t: 7
+      weight: 1
+      type: 0
+      output: 0
+    - id: 18
+      s: 13
+      t: 7
+      weight: 1
+      type: 0
+      output: 0
+    outputs: []
+  - id: 8
+    name: "Carregar Combust\xEDvel"
+    inputs:
+    - id: 19
+      s: 14
+      t: 8
+      weight: 1
+      type: 0
+      output: 0
+    - id: 20
+      s: 15
+      t: 8
+      weight: 1
+      type: 0
+      output: 0
+    outputs:
+    - id: 21
+      s: 13
+      t: 8
+      weight: 20
+      type: 0
+      output: 1
+  slotsArray:
+  - id: 0
+    name: Tiro Recebido
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 0
+      s: 0
+      t: 0
+      weight: 1
+      type: 0
+      output: 0
+  - id: 1
+    name: "Sa\xFAde"
+    tokens: 100
+    inputs: []
+    outputs:
+    - id: 1
+      s: 1
+      t: 0
+      weight: 1
+      type: 0
+      output: 0
+    - id: 2
+      s: 1
+      t: 1
+      weight: 1
+      type: 1
+      output: 0
+  - id: 2
+    name: "Quadrante Muni\xE7\xE3o"
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 3
+      s: 2
+      t: 2
+      weight: 1
+      type: 0
+      output: 0
+  - id: 3
+    name: "Input Carregar Muni\xE7\xE3o"
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 4
+      s: 3
+      t: 2
+      weight: 1
+      type: 0
+      output: 0
+  - id: 4
+    name: "Robo Vizinhan\xE7a"
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 5
+      s: 4
+      t: 3
+      weight: 1
+      type: 0
+      output: 0
+  - id: 5
+    name: Input Atacar
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 6
+      s: 5
+      t: 3
+      weight: 1
+      type: 0
+      output: 0
+  - id: 6
+    name: "Muni\xE7\xE3o"
+    tokens: 20
+    inputs:
+    - id: 8
+      s: 6
+      t: 2
+      weight: 10
+      type: 0
+      output: 1
+    outputs:
+    - id: 7
+      s: 6
+      t: 3
+      weight: 1
+      type: 0
+      output: 0
+  - id: 7
+    name: Tiro Enviado
+    tokens: 0
+    inputs:
+    - id: 9
+      s: 7
+      t: 3
+      weight: 1
+      type: 0
+      output: 1
+    outputs: []
+  - id: 8
+    name: "Quadrante Colis\xE3o"
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 10
+      s: 8
+      t: 4
+      weight: 1
+      type: 1
+      output: 0
+  - id: 9
+    name: Input Deslocar Norte
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 11
+      s: 9
+      t: 4
+      weight: 1
+      type: 0
+      output: 0
+  - id: 10
+    name: Input Deslocar Leste
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 12
+      s: 10
+      t: 5
+      weight: 1
+      type: 0
+      output: 0
+  - id: 11
+    name: Input Deslocar Sul
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 13
+      s: 11
+      t: 6
+      weight: 1
+      type: 0
+      output: 0
+  - id: 12
+    name: Input Deslocar Oeste
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 14
+      s: 12
+      t: 7
+      weight: 1
+      type: 0
+      output: 0
+  - id: 13
+    name: "Combust\xEDvel"
+    tokens: 50
+    inputs:
+    - id: 21
+      s: 13
+      t: 8
+      weight: 20
+      type: 0
+      output: 1
+    outputs:
+    - id: 15
+      s: 13
+      t: 4
+      weight: 1
+      type: 0
+      output: 0
+    - id: 16
+      s: 13
+      t: 5
+      weight: 1
+      type: 0
+      output: 0
+    - id: 17
+      s: 13
+      t: 6
+      weight: 1
+      type: 0
+      output: 0
+    - id: 18
+      s: 13
+      t: 7
+      weight: 1
+      type: 0
+      output: 0
+  - id: 14
+    name: "Input Carregar Combust\xEDvel"
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 19
+      s: 14
+      t: 8
+      weight: 1
+      type: 0
+      output: 0
+  - id: 15
+    name: "Quadrante Combust\xEDvel"
+    tokens: 0
+    inputs: []
+    outputs:
+    - id: 20
+      s: 15
+      t: 8
+      weight: 1
+      type: 0
+      output: 0
+  connectionsArray:
+  - id: 0
+    s: 0
+    t: 0
+    weight: 1
+    type: 0
+    output: 0
+  - id: 1
+    s: 1
+    t: 0
+    weight: 1
+    type: 0
+    output: 0
+  - id: 2
+    s: 1
+    t: 1
+    weight: 1
+    type: 1
+    output: 0
+  - id: 3
+    s: 2
+    t: 2
+    weight: 1
+    type: 0
+    output: 0
+  - id: 4
+    s: 3
+    t: 2
+    weight: 1
+    type: 0
+    output: 0
+  - id: 5
+    s: 4
+    t: 3
+    weight: 1
+    type: 0
+    output: 0
+  - id: 6
+    s: 5
+    t: 3
+    weight: 1
+    type: 0
+    output: 0
+  - id: 7
+    s: 6
+    t: 3
+    weight: 1
+    type: 0
+    output: 0
+  - id: 8
+    s: 6
+    t: 2
+    weight: 10
+    type: 0
+    output: 1
+  - id: 9
+    s: 7
+    t: 3
+    weight: 1
+    type: 0
+    output: 1
+  - id: 10
+    s: 8
+    t: 4
+    weight: 1
+    type: 1
+    output: 0
+  - id: 11
+    s: 9
+    t: 4
+    weight: 1
+    type: 0
+    output: 0
+  - id: 12
+    s: 10
+    t: 5
+    weight: 1
+    type: 0
+    output: 0
+  - id: 13
+    s: 11
+    t: 6
+    weight: 1
+    type: 0
+    output: 0
+  - id: 14
+    s: 12
+    t: 7
+    weight: 1
+    type: 0
+    output: 0
+  - id: 15
+    s: 13
+    t: 4
+    weight: 1
+    type: 0
+    output: 0
+  - id: 16
+    s: 13
+    t: 5
+    weight: 1
+    type: 0
+    output: 0
+  - id: 17
+    s: 13
+    t: 6
+    weight: 1
+    type: 0
+    output: 0
+  - id: 18
+    s: 13
+    t: 7
+    weight: 1
+    type: 0
+    output: 0
+  - id: 19
+    s: 14
+    t: 8
+    weight: 1
+    type: 0
+    output: 0
+  - id: 20
+    s: 15
+    t: 8
+    weight: 1
+    type: 0
+    output: 0
+  - id: 21
+    s: 13
+    t: 8
+    weight: 20
+    type: 0
+    output: 1
+  transitionsArray:
+  - id: 0
+    name: Atingido
+    inputs:
+    - id: 0
+      s: 0
+      t: 0
+      weight: 1
+      type: 0
+      output: 0
+    - id: 1
+      s: 1
+      t: 0
+      weight: 1
+      type: 0
+      output: 0
+    outputs: []
+  - id: 1
+    name: Game Over
+    inputs:
+    - id: 2
+      s: 1
+      t: 1
+      weight: 1
+      type: 1
+      output: 0
+    outputs: []
+  - id: 2
+    name: "Carregar Muni\xE7\xE3o"
+    inputs:
+    - id: 3
+      s: 2
+      t: 2
+      weight: 1
+      type: 0
+      output: 0
+    - id: 4
+      s: 3
+      t: 2
+      weight: 1
+      type: 0
+      output: 0
+    outputs:
+    - id: 8
+      s: 6
+      t: 2
+      weight: 10
+      type: 0
+      output: 1
+  - id: 3
+    name: Atacar Robo
+    inputs:
+    - id: 5
+      s: 4
+      t: 3
+      weight: 1
+      type: 0
+      output: 0
+    - id: 6
+      s: 5
+      t: 3
+      weight: 1
+      type: 0
+      output: 0
+    - id: 7
+      s: 6
+      t: 3
+      weight: 1
+      type: 0
+      output: 0
+    outputs:
+    - id: 9
+      s: 7
+      t: 3
+      weight: 1
+      type: 0
+      output: 1
+  - id: 4
+    name: Deslocar Norte
+    inputs:
+    - id: 10
+      s: 8
+      t: 4
+      weight: 1
+      type: 1
+      output: 0
+    - id: 11
+      s: 9
+      t: 4
+      weight: 1
+      type: 0
+      output: 0
+    - id: 15
+      s: 13
+      t: 4
+      weight: 1
+      type: 0
+      output: 0
+    outputs: []
+  - id: 5
+    name: Deslocar Leste
+    inputs:
+    - id: 12
+      s: 10
+      t: 5
+      weight: 1
+      type: 0
+      output: 0
+    - id: 16
+      s: 13
+      t: 5
+      weight: 1
+      type: 0
+      output: 0
+    outputs: []
+  - id: 6
+    name: Deslocar Sul
+    inputs:
+    - id: 13
+      s: 11
+      t: 6
+      weight: 1
+      type: 0
+      output: 0
+    - id: 17
+      s: 13
+      t: 6
+      weight: 1
+      type: 0
+      output: 0
+    outputs: []
+  - id: 7
+    name: Deslocar Oeste
+    inputs:
+    - id: 14
+      s: 12
+      t: 7
+      weight: 1
+      type: 0
+      output: 0
+    - id: 18
+      s: 13
+      t: 7
+      weight: 1
+      type: 0
+      output: 0
+    outputs: []
+  - id: 8
+    name: "Carregar Combust\xEDvel"
+    inputs:
+    - id: 19
+      s: 14
+      t: 8
+      weight: 1
+      type: 0
+      output: 0
+    - id: 20
+      s: 15
+      t: 8
+      weight: 1
+      type: 0
+      output: 0
+    outputs:
+    - id: 21
+      s: 13
+      t: 8
+      weight: 20
+      type: 0
+      output: 1
+  debugging: 0
+--- !u!114 &6527832889163251603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
