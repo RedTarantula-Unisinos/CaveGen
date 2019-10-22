@@ -35,11 +35,13 @@ public class MapGenerator : MonoBehaviour
     {
         public bool wall;
         public GameObject agent;
+        public GameObject go;
 
-        public DungeonCell(bool isWall, GameObject obj = null)
+        public DungeonCell(bool isWall,GameObject self, GameObject obj = null)
         {
             agent = obj;
             wall = isWall;
+            go = self;
         }
     }
 
@@ -86,10 +88,10 @@ public class MapGenerator : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            GenerateMap();
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    GenerateMap();
+        //}
     }
 
     public void ClearPhysicalMap()
@@ -131,6 +133,8 @@ public class MapGenerator : MonoBehaviour
                     GameObject child = Instantiate(cells[x,y].agent,go.transform);
                     child.transform.localPosition = new Vector3(0f,0f,-0.5f);
                 }
+
+                
             }
         }
         built = true;
@@ -287,7 +291,9 @@ public class MapGenerator : MonoBehaviour
             int rpos = UnityEngine.Random.Range(0,mainAreaPositions.ToArray().Length);
             Vector2 randomPos = mainAreaPositions[rpos];
             mainAreaPositions.Remove(randomPos);
-            cells[(int)randomPos.x,(int)randomPos.y].agent = playerAgent.obj;
+            GameObject playerGO = cells[(int)randomPos.x,(int)randomPos.y].agent = playerAgent.obj;
+            playerGO.GetComponent<PlayerScript>().cellPosition = new Vector2((int)randomPos.x,(int)randomPos.y);
+
             spawnedPlayer = true;
         }
         //
@@ -340,6 +346,7 @@ public class MapGenerator : MonoBehaviour
         Vector3 objPos = mapElement.transform.position;
         objPos = new Vector3(pos.x,0,pos.y);
         mapElement.transform.position = objPos;
+        cells[(int)pos.x,(int)pos.y].go = mapElement;
 
         return mapElement;
     }

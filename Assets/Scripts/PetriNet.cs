@@ -90,7 +90,7 @@ public class PetriNet : MonoBehaviour
 
         public void ActivateCallBack()
         {
-            Debug.Log(cb);
+            Debug.Log("Callback for " + name + ": " + cb);
             if(cb != null)
             cb();
             else
@@ -101,6 +101,7 @@ public class PetriNet : MonoBehaviour
 
         public void SetCallback(CallBack callback)
         {
+            Debug.Log("Setting callback for " + name + ": " + cb);
             cb = callback;
         }
 
@@ -180,6 +181,12 @@ public class PetriNet : MonoBehaviour
         slotsArray[slotID].AddTokens(tokensAmount);
         if (debugging)
             Debug.Log("Adding " + tokensAmount + " tokens to slot " + slotID);
+    }
+    public void SetTokensOnSlot(int slotID,int tokensAmount)
+    {
+        slotsArray[slotID].tokens = tokensAmount;
+        if (debugging)
+            Debug.Log("Setting " + tokensAmount + " tokens on slot " + slotID);
     }
     public void RemoveTokensFromSlot(int slotID,int tokensAmount)
     {
